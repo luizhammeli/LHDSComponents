@@ -7,9 +7,10 @@
 
 import UIKit
 
-final class TagButtonView: UIButton {
+public final class TagButtonView: UIButton {
     private let enableUserInteraction: Bool
-    override var isHighlighted: Bool {
+
+    public override var isHighlighted: Bool {
         didSet {
             if enableUserInteraction {
                 UIView.animate(withDuration: 0.3) { [weak self] in
@@ -21,7 +22,7 @@ final class TagButtonView: UIButton {
         }
     }
     
-    init(text: String, height: CGFloat = 30, padding: CGFloat = 14, enableUserInteraction: Bool = false) {
+    public init(text: String, height: CGFloat = 30, padding: CGFloat = 14, enableUserInteraction: Bool = false) {
         self.enableUserInteraction = enableUserInteraction
         super.init(frame: .zero)
         setup(text: text, height: height, padding: padding)
@@ -37,6 +38,8 @@ final class TagButtonView: UIButton {
         setTitle(text, for: .normal)
         setTitleColor(.systemBackground, for: .normal)
         titleLabel?.font = font
+        titleLabel?.adjustsFontSizeToFitWidth = true
+        titleLabel?.minimumScaleFactor = 0.8
         backgroundColor = .label
         layer.cornerRadius = height / 2
         
