@@ -47,7 +47,8 @@ extension TagViewController: CodeView {
 
 extension TagViewController: TagButtonViewDelegate {
     func didSelectTag(text: String, tag: Int) {
-        let alert = UIAlertController(title: text, message: "Tag: \(tag)", preferredStyle: .alert)
+        let alert = UIAlertController(title: text, message: String(), preferredStyle: .alert)
+        alert.addAction(.init(title: "Ok", style: .default))
         self.present(alert, animated: true)
     }
 }

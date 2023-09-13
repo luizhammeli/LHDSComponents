@@ -15,7 +15,7 @@ final class TagButtonView: UIButton {
                 UIView.animate(withDuration: 0.3) { [weak self] in
                     guard let self else { return }
                     self.alpha = self.isHighlighted ? 0.5 : 1
-                    self.transform = self.isHighlighted ? CGAffineTransform(scaleX: 0, y: 0.9) : .identity
+                    self.transform = self.isHighlighted ? CGAffineTransform(scaleX: 0.95, y: 0.95) : .identity
                 }
             }
         }
