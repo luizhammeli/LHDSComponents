@@ -17,6 +17,7 @@ final class TagViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
+        navigationItem.largeTitleDisplayMode = .never
         setupViews()
     }
 }
