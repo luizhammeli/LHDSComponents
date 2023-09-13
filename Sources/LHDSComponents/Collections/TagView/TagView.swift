@@ -41,6 +41,7 @@ public final class TagView: UIView {
     
     public func set(tags: [String], width: CGFloat) {
         self.width = width
+        cleanMainStackView()
         setupTags(tags)
     }
     
@@ -67,6 +68,11 @@ public final class TagView: UIView {
         if !lineLabels.isEmpty {
             setupHStackView(labels: lineLabels)
         }
+    }
+    
+    private func cleanMainStackView() {
+        let subviews = mainStackView.arrangedSubviews.map { $0 }
+        subviews.forEach { mainStackView.removeArrangedSubview($0) }
     }
     
     private func makeTagButton(text: String) -> TagButtonView {
