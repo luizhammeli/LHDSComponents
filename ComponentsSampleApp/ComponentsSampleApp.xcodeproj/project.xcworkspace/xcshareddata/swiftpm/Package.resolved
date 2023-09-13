@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "lhdscomponents",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/luizhammeli/LHDSComponents",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cbdfcea6e98e7feacee136381cea0eb6c207f10c"
+      }
+    },
+    {
       "identity" : "lhhelpers",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/luizhammeli/LHHelpers.git",

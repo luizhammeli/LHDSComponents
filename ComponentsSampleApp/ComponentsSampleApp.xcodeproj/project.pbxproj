@@ -17,6 +17,8 @@
 		252436712AB066CE00DC2566 /* ComponentsSampleAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252436702AB066CE00DC2566 /* ComponentsSampleAppUITests.swift */; };
 		252436732AB066CE00DC2566 /* ComponentsSampleAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252436722AB066CE00DC2566 /* ComponentsSampleAppUITestsLaunchTests.swift */; };
 		25C2C70F2AB205CD00D3E970 /* LHHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 25C2C70E2AB205CD00D3E970 /* LHHelpers */; };
+		25C2C7122AB20C4100D3E970 /* LHDSComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 25C2C7112AB20C4100D3E970 /* LHDSComponents */; };
+		25C2C7142AB20C5A00D3E970 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C2C7132AB20C5A00D3E970 /* TagViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,7 @@
 		2524366C2AB066CE00DC2566 /* ComponentsSampleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentsSampleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		252436702AB066CE00DC2566 /* ComponentsSampleAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsSampleAppUITests.swift; sourceTree = "<group>"; };
 		252436722AB066CE00DC2566 /* ComponentsSampleAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsSampleAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		25C2C7132AB20C5A00D3E970 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25C2C70F2AB205CD00D3E970 /* LHHelpers in Frameworks */,
+				25C2C7122AB20C4100D3E970 /* LHDSComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +112,7 @@
 				252436582AB066CE00DC2566 /* Assets.xcassets */,
 				2524365A2AB066CE00DC2566 /* LaunchScreen.storyboard */,
 				2524365D2AB066CE00DC2566 /* Info.plist */,
+				25C2C7132AB20C5A00D3E970 /* TagViewController.swift */,
 			);
 			path = ComponentsSampleApp;
 			sourceTree = "<group>";
@@ -147,6 +152,7 @@
 			name = ComponentsSampleApp;
 			packageProductDependencies = (
 				25C2C70E2AB205CD00D3E970 /* LHHelpers */,
+				25C2C7112AB20C4100D3E970 /* LHDSComponents */,
 			);
 			productName = ComponentsSampleApp;
 			productReference = 2524364C2AB066CD00DC2566 /* ComponentsSampleApp.app */;
@@ -222,6 +228,7 @@
 			mainGroup = 252436432AB066CD00DC2566;
 			packageReferences = (
 				25C2C70D2AB205CD00D3E970 /* XCRemoteSwiftPackageReference "LHHelpers" */,
+				25C2C7102AB20C4100D3E970 /* XCRemoteSwiftPackageReference "LHDSComponents" */,
 			);
 			productRefGroup = 2524364D2AB066CD00DC2566 /* Products */;
 			projectDirPath = "";
@@ -267,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				252436542AB066CD00DC2566 /* ViewController.swift in Sources */,
+				25C2C7142AB20C5A00D3E970 /* TagViewController.swift in Sources */,
 				252436502AB066CD00DC2566 /* AppDelegate.swift in Sources */,
 				252436522AB066CD00DC2566 /* SceneDelegate.swift in Sources */,
 			);
@@ -618,6 +626,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		25C2C7102AB20C4100D3E970 /* XCRemoteSwiftPackageReference "LHDSComponents" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/luizhammeli/LHDSComponents";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -625,6 +641,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 25C2C70D2AB205CD00D3E970 /* XCRemoteSwiftPackageReference "LHHelpers" */;
 			productName = LHHelpers;
+		};
+		25C2C7112AB20C4100D3E970 /* LHDSComponents */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25C2C7102AB20C4100D3E970 /* XCRemoteSwiftPackageReference "LHDSComponents" */;
+			productName = LHDSComponents;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

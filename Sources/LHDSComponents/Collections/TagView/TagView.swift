@@ -8,11 +8,11 @@
 import UIKit
 import LHHelpers
 
-protocol TagButtonViewDelegate: AnyObject {
+public protocol TagButtonViewDelegate: AnyObject {
     func didSelectTag(text: String, tag: Int)
 }
 
-final class TagView: UIView {
+public final class TagView: UIView {
     private lazy var mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
@@ -27,7 +27,7 @@ final class TagView: UIView {
     private let buttonHeight: CGFloat = 30
     private weak var delegate: TagButtonViewDelegate?
     
-    init(tags: [String], width: CGFloat, delegate: TagButtonViewDelegate? = nil) {
+    public init(tags: [String], width: CGFloat, delegate: TagButtonViewDelegate? = nil) {
         self.width = width
         self.delegate = delegate
         super.init(frame: .zero)
@@ -86,13 +86,13 @@ final class TagView: UIView {
 }
 
 extension TagView: CodeView {
-    func buildViewHierarchy() {
+    public func buildViewHierarchy() {
         addSubview(mainStackView)
     }
     
-    func setupConstraints() {
+    public func setupConstraints() {
         mainStackView.fillSuperview()
     }
     
-    func setupAdditionalConfiguration() {}
+    public func setupAdditionalConfiguration() {}
 }
