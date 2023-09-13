@@ -10,9 +10,10 @@ import LHHelpers
 import LHDSComponents
 
 final class TagViewController: UIViewController {
-    let tagView = TagView(tags: ["hardcore", "music", "live", "metal", "metalcore", "show", "gig", "concert", "australia", "brazil", "rock", "band", "or" ,"screamo"],
-                          width: UIScreen.main.bounds.width - 32)
-//
+    private let tags = ["hardcore", "music", "live", "metal", "metalcore", "show", "gig", "concert", "australia", "brazil", "rock", "band", "or" ,"screamo"]
+    private lazy var staticTagView = TagView(tags: tags, width: UIScreen.main.bounds.width - 32)
+    private lazy var buttonTagView = TagView(tags: tags, width: UIScreen.main.bounds.width - 32, delegate: self)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .cyan
@@ -22,15 +23,31 @@ final class TagViewController: UIViewController {
 
 extension TagViewController: CodeView {
     func buildViewHierarchy() {
-        view.addSubview(tagView)
+        view.addSubview(staticTagView)
+        view.addSubview(buttonTagView)
     }
 
     func setupConstraints() {
-        tagView.anchor(leading: view.leadingAnchor, trailing: view.trailingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16))
-        tagView.centerYInSuperview()
+        staticTagView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                       leading: view.leadingAnchor,
+                       trailing: view.trailingAnchor,
+                       padding: UIEdgeInsets(top: 24, left: 16, bottom: 0, right: 16))
+        
+        buttonTagView.anchor(top: staticTagView.bottomAnchor,
+                       leading: view.leadingAnchor,
+                       trailing: view.trailingAnchor,
+                       padding: UIEdgeInsets(top: 24, left: 16, bottom: 0, right: 16))
     }
 
     func setupAdditionalConfiguration() {
         view.backgroundColor = .systemBackground
+        navigationItem.title = "TagView"
+    }
+}
+
+extension TagViewController: TagButtonViewDelegate {
+    func didSelectTag(text: String, tag: Int) {
+        let alert = UIAlertController(title: text, message: "Tag: \(tag)", preferredStyle: .alert)
+        self.present(alert, animated: true)
     }
 }
