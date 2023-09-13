@@ -39,7 +39,7 @@ public final class TagView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func set(tags: [String], width: CGFloat) {
+    public func set(tags: [String], width: CGFloat) {
         self.width = width
         setupTags(tags)
     }
