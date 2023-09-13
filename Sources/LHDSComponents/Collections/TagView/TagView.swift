@@ -20,16 +20,16 @@ public final class TagView: UIView {
         return stackView
     }()
     
-    private let width: CGFloat
+    private var width: CGFloat
     private let hSpacing: CGFloat = 6
     private let vSpacing: CGFloat = 8
     private let buttonPadding: CGFloat = 14
     private let buttonHeight: CGFloat = 30
     private weak var delegate: TagButtonViewDelegate?
     
-    public init(tags: [String], width: CGFloat, delegate: TagButtonViewDelegate? = nil) {
-        self.width = width
+    public init(tags: [String] = [], width: CGFloat = .zero, delegate: TagButtonViewDelegate? = nil) {
         self.delegate = delegate
+        self.width = width
         super.init(frame: .zero)
         setupTags(tags)
         setupViews()
@@ -37,6 +37,11 @@ public final class TagView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func set(tags: [String], width: CGFloat) {
+        self.width = width
+        setupTags(tags)
     }
     
     private func setupTags(_ tags: [String]) {
