@@ -41,7 +41,6 @@ public final class TagView: UIView {
     
     public func set(tags: [String], width: CGFloat) {
         self.width = width
-        cleanMainStackView()
         setupTags(tags)
     }
     
