@@ -15,7 +15,7 @@ let package = Package(
             targets: ["LHDSComponents"]),
     ],
     dependencies: [        
-        .package(url: "https://github.com/luizhammeli/LHHelpers", from: "1.0.0"),
+        .package(url: "https://github.com/luizhammeli/LHHelpers", from: "1.0.2"),
         .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.13.0")
         
     ],
