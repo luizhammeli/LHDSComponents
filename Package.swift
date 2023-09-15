@@ -15,7 +15,9 @@ let package = Package(
             targets: ["LHDSComponents"]),
     ],
     dependencies: [        
-        .package(url: "https://github.com/luizhammeli/LHHelpers", from: "1.0.0")
+        .package(url: "https://github.com/luizhammeli/LHHelpers", from: "1.0.0"),
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.13.0")
+        
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -25,6 +27,6 @@ let package = Package(
             dependencies: ["LHHelpers"]),
         .testTarget(
             name: "LHDSComponentsTests",
-            dependencies: ["LHDSComponents"]),
+            dependencies: ["LHDSComponents", .product(name: "SnapshotTesting", package: "swift-snapshot-testing")]),
     ]
 )
