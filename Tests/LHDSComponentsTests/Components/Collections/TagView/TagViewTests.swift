@@ -69,4 +69,3 @@ private extension TagView {
         ((subviews.first as? UIStackView)?.arrangedSubviews) as? [UIStackView] ?? []
     }
 }
-
