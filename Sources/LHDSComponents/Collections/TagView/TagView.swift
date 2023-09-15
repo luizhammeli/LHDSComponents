@@ -90,7 +90,7 @@ public final class TagView: UIView {
         mainStackView.addArrangedSubview(stackView)
     }
     
-    @objc private func handleButton(button: UIButton) {
+    @objc private func handleButton(_ button: UIButton) {
         delegate?.didSelectTag(text: button.titleLabel?.text ?? "", tag: button.tag)
     }
 }
