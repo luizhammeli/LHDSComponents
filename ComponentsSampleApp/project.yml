@@ -1,0 +1,101 @@
+name: ComponentsSampleApp
+
+settings: 
+  MARKETING_VERSION: "1.0"
+  SWIFT_VERSION: 5.7
+  VERSIONING_SYSTEM: "apple-generic"
+  CLANG_ENABLE_OBJC_WEAK: "YES"
+  ARCHS: $(ARCHS_STANDARD)
+  CODE_SIGN_IDENTITY: ""
+  
+options:
+  xcodeVersion: "14.2"
+  createIntermediateGroups: true
+  developmentLanguage: "pt-BR"
+  bundleIdPrefix: br.com.luizhammerli
+  deploymentTarget:
+    iOS: 14.0    
+
+configs:
+  Debug: debug
+  Release: release
+
+packages:
+  LHDSComponents:
+    url: https://github.com/luizhammeli/LHDSComponents
+    branch: main
+
+targets:
+  ComponentsSampleApp:
+    templates:
+      - iOSApp
+    dependencies:
+      - package: LHDSComponents
+    properties:
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+  ComponentsSampleAppTests:
+    templates:
+      - iOSAppTests
+    dependencies:
+      - target: ComponentsSampleApp
+      - package: LHDSComponents
+  ComponentsSampleAppUITests:
+    templates:
+      - iOSAppUITests
+    dependencies:
+      - target: ComponentsSampleApp
+      - package: LHDSComponents
+
+schemes:
+  ComponentsSampleApp:
+    build:
+      targets:
+        ComponentsSampleApp: [run, test, archive]
+    archive:
+      config: Release
+    run:
+      config: Debug
+    test: 
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets: 
+        - ComponentsSampleApp
+      targets:
+        - name: ComponentsSampleAppTests
+          randomExecutionOrder: true
+        - name: ComponentsSampleAppUITests
+          randomExecutionOrder: true
+
+targetTemplates:
+  iOSApp:
+    platform: iOS
+    type: application
+    sources: 
+      - path: ${target_name}
+    settings:
+      base:
+        INFOPLIST_FILE: ${target_name}/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: LuizHammerli.ComponentsSampleApp
+      configs:
+        Release:
+          CODE_SIGN_IDENTITY: ""
+          PROVISIONING_PROFILE_SPECIFIER: ""
+        Debug:
+          CODE_SIGN_IDENTITY: ""
+          PROVISIONING_PROFILE_SPECIFIER: ""
+
+  iOSAppTests:
+    platform: iOS
+    type: bundle.unit-test
+    sources: 
+      - path: ${target_name}
+    info:
+      path: ${target_name}/Info.plist
+  
+  iOSAppUITests: 
+    platform: iOS
+    type: bundle.ui-testing
+    sources: 
+      - path: ${target_name}
+    info:
+      path: ${target_name}/Info.plist
