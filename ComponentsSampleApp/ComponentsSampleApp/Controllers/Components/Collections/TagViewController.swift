@@ -15,8 +15,7 @@ final class TagViewController: UIViewController {
     private lazy var buttonTagView = TagView(tags: tags, width: UIScreen.main.bounds.width - 32, delegate: self)
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .cyan
+        super.viewDidLoad()        
         navigationItem.largeTitleDisplayMode = .never
         setupViews()
     }
