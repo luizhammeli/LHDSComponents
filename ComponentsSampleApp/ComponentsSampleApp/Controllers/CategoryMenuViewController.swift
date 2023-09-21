@@ -42,4 +42,3 @@ final class CategoryMenuViewController: UITableViewController {
         return cell
     }
 }
-

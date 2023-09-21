@@ -11,7 +11,8 @@ struct CategoryMenuViewModel {
     var categories: [Category] {
         [
             .init(title: "Collections", subCategories: [.init(title: "TagView", controller: TagViewController())]),
-            .init(title: "Buttons", subCategories: [.init(title: "Rounded", controller: TagButtonViewController())])
+            .init(title: "Buttons", subCategories: [.init(title: "Rounded", controller: TagButtonViewController())]),
+            .init(title: "Controllers", subCategories: [.init(title: "BottomSheet", controller: BottomSheetContainerViewController())])
         ]
     }
 }
