@@ -62,7 +62,7 @@ private extension TagView {
     }
     
     var buttons: [TagButtonView] {
-        let hStacks = ((subviews.first as? UIStackView)?.arrangedSubviews.flatMap { $0 as? UIStackView })
+        let hStacks = ((subviews.first as? UIStackView)?.arrangedSubviews.compactMap { $0 as? UIStackView })
         return hStacks?.flatMap { $0.arrangedSubviews.compactMap { $0 as? TagButtonView } } ?? []
     }
     
