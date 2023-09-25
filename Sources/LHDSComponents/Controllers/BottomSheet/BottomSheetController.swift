@@ -9,9 +9,9 @@ import LHHelpers
 import UIKit
 
 public final class BottomSheetViewController: CustomViewController<BottomSheetView> {
-    private var totalHeight: CGFloat = .zero
+    private var totalHeight: CGFloat = 1000
     
-    public init(view: UIView, height: CGFloat) {
+    public init(view: UIView, height: CGFloat? = nil) {
         super.init(nibName: nil, bundle: nil)
         setup()
         setupChildView(view: view, height: height)
@@ -44,12 +44,14 @@ public final class BottomSheetViewController: CustomViewController<BottomSheetVi
         
     }
     
-    private func setupChildView(view: UIView, height: CGFloat) {
+    private func setupChildView(view: UIView, height: CGFloat?) {
         let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let topPadding = scene?.windows.first?.safeAreaInsets.top ?? .zero
-        totalHeight = min(height, (UIScreen.main.bounds.height - topPadding))
+        if let height = height {
+            totalHeight = min(height, (UIScreen.main.bounds.height - topPadding))
+            customView.stackView.anchor(size: CGSize(width: .zero, height: totalHeight))
+        }
         customView.stackView.addArrangedSubview(view)
-        customView.stackView.anchor(size: CGSize(width: .zero, height: totalHeight))
         customView.containerView.transform = CGAffineTransform(translationX: 0, y: totalHeight)
     }
     
