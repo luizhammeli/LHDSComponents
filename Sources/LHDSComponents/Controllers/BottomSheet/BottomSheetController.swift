@@ -70,7 +70,7 @@ public final class BottomSheetViewController: CustomViewController<BottomSheetVi
    
     @objc private func handlePanGesture(gesture: UIPanGestureRecognizer) {
         let yValue = gesture.translation(in: customView.containerView).y
-        let endThreshold = totalHeight * 0.2
+        let endThreshold = totalHeight * 0.1
         switch gesture.state {
         case .changed:
             if yValue > .zero {
