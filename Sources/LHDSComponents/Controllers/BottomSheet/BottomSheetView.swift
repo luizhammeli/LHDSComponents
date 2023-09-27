@@ -25,7 +25,6 @@ public final class BottomSheetView: UIView {
     let containerView: UIView = {
         let view = UIView()
         view.roundCorners(corners: [.topLeft, .topRight], radius: BorderRadius.medium)
-        view.backgroundColor = .systemBackground
         return view
     }()
     
@@ -65,5 +64,7 @@ extension BottomSheetView: CodeView {
         stackView.fillSuperview()
     }
 
-    public func setupAdditionalConfiguration() {}
+    public func setupAdditionalConfiguration() {
+        containerView.backgroundColor = traitCollection.userInterfaceStyle == .dark ? .secondarySystemBackground  : .systemBackground
+    }
 }
